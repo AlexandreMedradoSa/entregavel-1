@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MDC</title>
+</head>
+
+<body>
+  <script>
+    // Solicita ao usuário que insira os números "a" e "b"
+    const a = parseInt(window.prompt("Digite o primeiro número (a):"));
+    const b = parseInt(window.prompt("Digite o segundo número (b):"));
+
+    // Função para calcular o MDC
+    function calcularMDC(x, y) {
+      while (y !== 0) {
+        const temp = y;
+        y = x % y;
+        x = temp;
+      }
+      return x;
+    }
+
+    if (isNaN(a) || isNaN(b)) {
+      console.log("Por favor, insira valores numéricos válidos.");
+    } else {
+      const mdc = calcularMDC(a, b);
+      console.log(`O MDC de ${a} e ${b} é ${mdc}`);
+    }
+
+  </script>
+</body>
+
+</html>

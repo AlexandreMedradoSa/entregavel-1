@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>É Primo?</title>
+</head>
+
+<body>
+  <script>
+    const numeroDigitado = window.prompt("Digite o Número: ")
+    function isPrime(number) {
+      // Verifica se o número é menor ou igual a 1, pois números menores que 2 não são primos.
+      if (number <= 1) {
+        return false;
+      }
+
+      // Verifica se o número é igual a 2, que é um número primo.
+      if (number === 2) {
+        return true;
+      }
+
+      // Verifica se o número é divisível por qualquer número de 2 até a sua raiz quadrada.
+      for (let i = 2; i <= Math.sqrt(number); i++) {
+        if (number % i === 0) {
+          return false;
+        }
+      }
+
+      // Se não houver divisores encontrados, o número é primo.
+      return true;
+    }
+    if (isPrime(numeroDigitado)) {
+      console.log(`${numeroDigitado} é um número primo.`);
+    } else {
+      console.log(`${numeroDigitado} não é um número primo.`);
+    }
+  </script>
+</body>
+
+</html>

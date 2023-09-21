@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fibonacci</title>
+</head>
+
+<body>
+  <script>
+    // Solicita ao usuário que insira o valor de N
+    const n = parseInt(window.prompt("Digite o valor de N (N > 1):"));
+
+    if (isNaN(n) || n <= 1) {
+      console.log("Por favor, insira um valor válido para N (N > 1).");
+    } else {
+      // Inicializa os primeiros dois termos da sequência
+      let termo1 = 0;
+      let termo2 = 1;
+      let sequencia = [termo1, termo2];
+
+      // Calcula os termos subsequentes da sequência até N
+      for (let i = 2; i < n; i++) {
+        const proximoTermo = termo1 + termo2;
+        sequencia.push(proximoTermo);
+        termo1 = termo2;
+        termo2 = proximoTermo;
+      }
+
+      console.log(`Os primeiros ${n} termos da sequência de Fibonacci são: ${sequencia.join(', ')}`);
+    }
+  </script>
+</body>
+
+</html>

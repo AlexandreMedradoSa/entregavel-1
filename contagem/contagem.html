@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contagem</title>
+</head>
+
+<body>
+  <script>
+    // Solicita ao usuário que insira o valor N
+    const n = parseInt(window.prompt("Digite o valor de N:"));
+
+    if (isNaN(n) || n <= 0) {
+      console.log("Por favor, insira um valor válido para N (N > 0).");
+    } else {
+      // Solicita ao usuário que insira N valores de entrada
+      const valores = [];
+      for (let i = 0; i < n; i++) {
+        const valor = parseInt(window.prompt(`Digite o ${i + 1}º valor:`));
+        valores.push(valor);
+      }
+
+      // Identifica automaticamente o primeiro dado
+      const primeiroDado = valores[0];
+
+      // Conta quantos valores estão no intervalo entre o primeiro dado e N
+      let contador = 0;
+      for (let i = 0; i < n; i++) {
+        if (valores[i] >= primeiroDado && valores[i] <= n) {
+          contador++;
+        }
+      }
+
+      console.log(`Existem ${contador} valores inteiros entre ${primeiroDado} (inclusive) e ${n} (inclusive).`);
+    }
+
+  </script>
+</body>
+
+</html>

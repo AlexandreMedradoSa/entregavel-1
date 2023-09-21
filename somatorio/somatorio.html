@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Somatório</title>
+</head>
+
+<body>
+  <script>
+    // Solicita ao usuário que insira os números separados por vírgula
+    const input = window.prompt("Digite os números separados por vírgula:");
+
+    // Divide a entrada em um array de strings usando a vírgula como separador
+    const numerosString = input.split(",");
+
+    // Converte as strings em números e calcula o somatório
+    let soma = 0;
+
+    for (let i = 0; i < numerosString.length; i++) {
+      const numero = parseFloat(numerosString[i]);
+
+      // Verifica se a conversão foi bem-sucedida e se o valor é um número
+      if (!isNaN(numero)) {
+        soma += numero;
+      }
+    }
+
+    // Exibe o resultado
+    console.log(`O somatório dos números é: ${soma}`);
+  </script>
+</body>
+
+</html>

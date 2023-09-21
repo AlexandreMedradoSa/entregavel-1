@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ordenação</title>
+</head>
+
+<body>
+  <script>
+    // Solicita ao usuário que insira o array de números separados por vírgula
+    const input = window.prompt("Digite um array de números separados por vírgula:");
+
+    // Converte a entrada em um array de números
+    const numeros = input.split(",").map(Number);
+
+    // Função Quicksort para ordenar o array
+    function quickSort(arr) {
+      if (arr.length <= 1) {
+        return arr;
+      }
+
+      const pivot = arr[0];
+      const menores = [];
+      const maiores = [];
+
+      for (let i = 1; i < arr.length; i++) {
+        if (arr[i] < pivot) {
+          menores.push(arr[i]);
+        } else {
+          maiores.push(arr[i]);
+        }
+      }
+
+      return [...quickSort(menores), pivot, ...quickSort(maiores)];
+    }
+
+    if (numeros.some(isNaN)) {
+      console.log("Por favor, insira um array válido de números.");
+    } else {
+      const arrayOrdenado = quickSort(numeros);
+      console.log("Array ordenado: " + arrayOrdenado.join(", "));
+    }
+  </script>
+</body>
+
+</html>
